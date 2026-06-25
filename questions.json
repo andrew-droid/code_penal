@@ -1,60 +1,1157 @@
 [
-  {"cat":"G","q":"Le critère de la classification crime / délit / contravention (art. 3) est :","o":["la gravité morale du fait","le quantum de la peine encourue","l'intention de l'auteur"],"c":1,"e":"Art. 3 : c'est la peine encourue qui range l'infraction."},
-  {"cat":"G","q":"Une infraction punie de l'emprisonnement à vie ou de plus de 10 ans est :","o":["un crime","un délit","une contravention"],"c":0,"e":"Crime = à vie ou plus de 10 ans."},
-  {"cat":"G","q":"Le crime est jugé par :","o":["le tribunal correctionnel","le tribunal criminel","le tribunal de simple police"],"c":1,"e":"Crime → tribunal criminel, après instruction obligatoire."},
-  {"cat":"G","q":"La légitime défense (art. 98) suppose une riposte :","o":["différée et punitive","concomitante et proportionnée","toujours mortelle"],"c":1,"e":"Art. 98 : nécessaire, concomitante, proportionnée à une attaque injuste actuelle."},
-  {"cat":"G","q":"L'ordre de l'autorité légitime (art. 100) ne justifie pas l'acte s'il est :","o":["verbal","manifestement illégal","donné un dimanche"],"c":1,"e":"Art. 100 : un ordre manifestement illégal n'efface pas l'infraction."},
-  {"cat":"G","q":"Le trouble mental abolissant le discernement (art. 102) :","o":["atténue la peine de moitié","supprime la responsabilité pénale","est sans effet"],"c":1,"e":"Art. 102 : irresponsabilité (mesures de sûreté possibles)."},
-  {"cat":"G","q":"L'ivresse volontaire de l'auteur :","o":["supprime sa responsabilité","ne l'excuse pas","est une excuse absolutoire"],"c":1,"e":"L'intoxication volontaire n'efface pas la responsabilité."},
-  {"cat":"G","q":"Un mineur de moins de 10 ans :","o":["subit la moitié de la peine","ne peut être ni qualifié ni poursuivi","est jugé comme un majeur"],"c":1,"e":"Art. 113 : pas de qualification ni de poursuite avant 10 ans."},
-  {"cat":"G","q":"Un mineur de moins de 13 ans reconnu coupable bénéficie de :","o":["l'excuse absolutoire de minorité","l'excuse atténuante","aucune faveur"],"c":0,"e":"Art. 113 : excuse absolutoire → mesures éducatives seules."},
-  {"cat":"G","q":"Un mineur de 13 à 18 ans bénéficie de :","o":["l'excuse absolutoire","l'excuse atténuante (moitié des peines)","rien"],"c":1,"e":"Art. 113 / 112 : moitié des peines."},
-  {"cat":"G","q":"L'excuse atténuante est une cause :","o":["judiciaire et facultative","légale et obligatoire","sans effet sur la peine"],"c":1,"e":"Excuse (art. 11) = légale et obligatoire. La circonstance atténuante (114), elle, est judiciaire."},
-  {"cat":"G","q":"Les circonstances atténuantes (art. 114) relèvent :","o":["d'un pouvoir du juge, facultatif","d'une obligation légale","du procureur"],"c":0,"e":"Art. 114 : pouvoir discrétionnaire du juge, sauf exclusion légale."},
-  {"cat":"G","q":"Les circonstances aggravantes :","o":["changent la qualification","excluent les circonstances atténuantes et le sursis","réduisent la peine"],"c":1,"e":"Sans effet sur la qualification, elles écartent atténuantes et sursis."},
-  {"cat":"G","q":"Le complice (art. 30) encourt en principe :","o":["la moitié de la peine","la même peine que l'auteur","aucune peine"],"c":1,"e":"Emprunt de criminalité : la peine de l'auteur."},
-  {"cat":"G","q":"Donner des instructions et fournir une arme à l'auteur, c'est :","o":["de la complicité","de la non-dénonciation","sans conséquence"],"c":0,"e":"Art. 30 : complicité par fourniture de moyens et instructions."},
-  {"cat":"G","q":"La tentative (art. 28) suppose :","o":["un simple projet","un commencement d'exécution interrompu malgré soi","l'infraction consommée"],"c":1,"e":"Art. 28 : commencement d'exécution + interruption indépendante de la volonté."},
-  {"cat":"G","q":"Forcer la porte d'un magasin pour le voler, mais il est vide : c'est :","o":["un vol consommé","une tentative de vol","rien du tout"],"c":1,"e":"Pas de soustraction (vide) → tentative punissable."},
-  {"cat":"G","q":"En cumul réel (art. 119), les peines de même nature :","o":["s'additionnent","ne se cumulent pas : on retient la plus forte","s'annulent"],"c":1,"e":"Art. 119 : on retient la peine la plus sévère."},
-  {"cat":"G","q":"La contrainte irrésistible est :","o":["une circonstance aggravante","une excuse absolutoire","sans effet"],"c":1,"e":"Art. 11 : contrainte irrésistible = excuse absolutoire."},
-
-  {"cat":"P","q":"Le meurtre simple (art. 380 al. 1) est puni de :","o":["l'emprisonnement à vie","10 à 20 ans","5 à 10 ans"],"c":1,"e":"Art. 380 al. 1 : 10-20 ans. À vie seulement si aggravé."},
-  {"cat":"P","q":"L'assassinat se distingue du meurtre par :","o":["l'usage d'une arme","la préméditation","la qualité de la victime"],"c":1,"e":"Art. 378-2° : la préméditation."},
-  {"cat":"P","q":"L'assassinat, le parricide, l'empoisonnement (art. 379) :","o":["10 à 20 ans","l'emprisonnement à vie","5 à 20 ans"],"c":1,"e":"Art. 379 : à vie, toujours."},
-  {"cat":"P","q":"Les coups ayant entraîné la mort sans intention de la donner (381-1°) :","o":["5 à 20 ans","l'emprisonnement à vie","1 à 5 ans"],"c":0,"e":"Art. 381-1° : 5-20 ans (à vie si sur un proche, 383-1°)."},
-  {"cat":"P","q":"La voie de fait (art. 382) est punie de :","o":["1 à 5 ans","15 jours à 6 mois","3 mois à 2 ans"],"c":1,"e":"Art. 382 : 15 jours à 6 mois — la moins sévère du chapitre."},
-  {"cat":"P","q":"L'homicide involontaire (art. 392 al. 1) :","o":["3 mois à 3 ans","5 à 10 ans","à vie"],"c":0,"e":"Art. 392 al. 1 : 3 mois à 3 ans."},
-  {"cat":"P","q":"L'omission de porter secours (art. 391) :","o":["3 mois à 5 ans","à vie","une amende seule"],"c":0,"e":"Art. 391 : 3 mois-5 ans, doublé si obligation professionnelle."},
-  {"cat":"P","q":"Le viol simple (art. 403) est puni de :","o":["1 à 5 ans","5 à 20 ans","l'emprisonnement à vie"],"c":1,"e":"Art. 403 : 5-20 ans. À vie si mort/infirmité ou viol aggravé (404)."},
-  {"cat":"P","q":"Le viol aggravé (art. 404) est puni de :","o":["2 à 5 ans","5 à 10 ans","l'emprisonnement à vie"],"c":2,"e":"Art. 404 : à vie (sur mineur, par ascendant, à plusieurs, avec arme...)."},
-  {"cat":"P","q":"L'inceste (art. 410) est puni de :","o":["6 mois à 1 an","5 à 10 ans","à vie"],"c":0,"e":"Art. 410 : 6 mois-1 an (+ amende)."},
-  {"cat":"P","q":"L'outrage public à la pudeur (art. 416) :","o":["3 mois à 2 ans (doublé si mineur)","5 à 10 ans","à vie"],"c":0,"e":"Art. 416 : 3 mois-2 ans, doublé si commis sur un mineur ou en sa présence."},
-  {"cat":"P","q":"L'attentat à la pudeur de base, sans violence (art. 405) :","o":["1 à 3 ans","5 à 10 ans","à vie"],"c":0,"e":"Art. 405 : 1-3 ans."},
-
-  {"cat":"B","q":"La soustraction frauduleuse d'une chose d'autrui, c'est :","o":["le vol","l'abus de confiance","l'escroquerie"],"c":0,"e":"Art. 457 : prise contre le gré du propriétaire."},
-  {"cat":"B","q":"Détourner une chose qu'on vous a remise, c'est :","o":["un vol","un abus de confiance","une escroquerie"],"c":1,"e":"Art. 467 : la chose a été remise puis détournée."},
-  {"cat":"B","q":"Se faire remettre un bien par des manœuvres frauduleuses, c'est :","o":["un vol","une escroquerie","un recel"],"c":1,"e":"Art. 471 : la victime remet, mais trompée."},
-  {"cat":"B","q":"La victime a remis le bien librement, puis on l'a gardé. C'est :","o":["un vol","une escroquerie","un abus de confiance"],"c":2,"e":"Remise libre + détournement = abus de confiance (467)."},
-  {"cat":"B","q":"Le vol simple (art. 458) est puni de :","o":["1 à 5 ans","5 à 10 ans","10 à 20 ans"],"c":1,"e":"Art. 458 : 5-10 ans."},
-  {"cat":"B","q":"Le vol avec effraction, escalade ou en réunion (art. 459) :","o":["5 à 10 ans","10 à 20 ans","à vie"],"c":1,"e":"Art. 459 : 10-20 ans."},
-  {"cat":"B","q":"Le vol par un auteur armé ou avec violences mortelles (art. 460) :","o":["10 à 20 ans","l'emprisonnement à vie","5 à 10 ans"],"c":1,"e":"Art. 460 : à vie."},
-  {"cat":"B","q":"L'abus de confiance (art. 467) est puni de :","o":["1 à 5 ans","5 à 10 ans","à vie"],"c":0,"e":"Art. 467 : 1-5 ans (doublé si gestionnaire d'affaires, art. 468)."},
-  {"cat":"B","q":"L'escroquerie (art. 471) est punie de :","o":["1 à 5 ans","5 à 10 ans","à vie"],"c":0,"e":"Art. 471 : 1-5 ans."},
-  {"cat":"B","q":"Obtenir par la force un acte portant sur le patrimoine, c'est :","o":["le chantage","l'extorsion","le recel"],"c":1,"e":"Art. 474 : extorsion (5-10 ans)."},
-  {"cat":"B","q":"Obtenir un bien par menace de révélations, c'est :","o":["l'extorsion","le chantage","le faux"],"c":1,"e":"Art. 475 : chantage (1-5 ans)."},
-  {"cat":"B","q":"Le recel d'une chose volée (art. 477) est puni :","o":["d'une amende seule","des peines de l'art. 458 (vol)","de 6 mois maximum"],"c":1,"e":"Art. 477 : recel de chose volée = peines du vol, sans sursis."},
-  {"cat":"B","q":"La destruction d'un bien d'autrui par incendie (art. 486) :","o":["1 à 5 ans","5 à 20 ans","2 à 10 ans"],"c":1,"e":"Art. 486 : 5-20 ans ; à vie si mort ou infirmité."},
-  {"cat":"B","q":"La filouterie (manger au restaurant sans pouvoir payer, art. 463) :","o":["3 mois à 1 an","5 à 10 ans","à vie"],"c":0,"e":"Art. 463 : 3 mois-1 an."},
-  {"cat":"B","q":"L'association de malfaiteurs (art. 203 s.) est punissable :","o":["seulement si le crime projeté est commis","dès l'entente accompagnée d'un acte matériel","jamais à elle seule"],"c":1,"e":"Infraction autonome et préventive : on punit l'entente elle-même."},
-  {"cat":"B","q":"Celui qui révèle l'association aux autorités avant toute poursuite :","o":["voit sa peine doublée","bénéficie d'une excuse absolutoire","n'a aucun avantage"],"c":1,"e":"Art. 203 s. : excuse absolutoire de dénonciation."},
-  {"cat":"B","q":"Falsifier des factures, c'est :","o":["un vol","un faux en écriture de commerce","une voie de fait"],"c":1,"e":"Art. 479 : faux en écriture de commerce."},
-
-  {"cat":"PR","q":"Un mineur peut-il être jugé selon la procédure de flagrant délit ?","o":["oui","non, jamais","seulement après 16 ans"],"c":1,"e":"Le mineur relève toujours de la juridiction des mineurs."},
-  {"cat":"PR","q":"La procédure de flagrant délit s'applique :","o":["aux crimes","aux délits, jamais aux crimes","aux seules contraventions"],"c":1,"e":"Flagrant délit = un délit + un état de flagrance."},
-  {"cat":"PR","q":"Le délit est jugé par :","o":["le tribunal criminel","le tribunal correctionnel","le tribunal de simple police"],"c":1,"e":"Délit → tribunal correctionnel."},
-  {"cat":"PR","q":"La contravention est jugée par :","o":["le tribunal correctionnel","le tribunal de simple police","le tribunal criminel"],"c":1,"e":"Contravention → tribunal de simple police."},
-  {"cat":"PR","q":"Décider de poursuivre, classer ou recourir à une alternative relève :","o":["du juge d'instruction","de l'opportunité des poursuites du procureur","de la police seule"],"c":1,"e":"Le procureur apprécie l'opportunité des poursuites."},
-  {"cat":"PR","q":"La médiation pénale est :","o":["une peine","une alternative aux poursuites","une voie de recours"],"c":1,"e":"Alternative aux poursuites, à la main du procureur."},
-  {"cat":"PR","q":"Pour un crime, l'instruction est :","o":["facultative","obligatoire","interdite"],"c":1,"e":"Crime → information judiciaire (instruction) obligatoire."}
+{
+"cat": "G",
+"q": "Sur quel critère repose la classification crime / délit / contravention (art. 3) ?",
+"o": [
+"la gravité morale du fait",
+"le quantum de la peine encourue",
+"l'intention de l'auteur"
+],
+"c": 1,
+"e": "Art. 3 : c'est la peine encourue, pas le ressenti moral. Piège classique : on classe par la PEINE, pas par l'horreur des faits."
+},
+{
+"cat": "G",
+"q": "Une infraction punie de l'emprisonnement à vie ou de plus de 10 ans est :",
+"o": [
+"un crime",
+"un délit",
+"une contravention"
+],
+"c": 0,
+"e": "Art. 3 : crime = à vie ou peine supérieure à 10 ans => tribunal criminel."
+},
+{
+"cat": "G",
+"q": "Un délit est une infraction punie :",
+"o": [
+"de plus de 2 mois à 10 ans",
+"de plus de 10 ans",
+"d'au plus 2 mois"
+],
+"c": 0,
+"e": "Art. 3 : le délit va de plus de 2 mois à 10 ans (ou amende au-delà du seuil contraventionnel) => tribunal correctionnel."
+},
+{
+"cat": "G",
+"q": "Une contravention est punie au maximum de :",
+"o": [
+"2 mois d'emprisonnement",
+"2 ans",
+"6 mois"
+],
+"c": 0,
+"e": "Art. 3 : contravention = au plus 2 mois et faible amende => tribunal de simple police."
+},
+{
+"cat": "G",
+"q": "Pour une contravention, l'intention de l'auteur est :",
+"o": [
+"toujours exigée",
+"indifférente : l'infraction est matérielle",
+"une circonstance aggravante"
+],
+"c": 1,
+"e": "Piège : la contravention est une infraction matérielle. Pas besoin de prouver l'intention, contrairement au crime et au délit (sauf délits d'imprudence)."
+},
+{
+"cat": "G",
+"q": "La tentative (art. 28) suppose :",
+"o": [
+"un simple projet non exécuté",
+"un commencement d'exécution interrompu par une cause indépendante de la volonté",
+"l'infraction entièrement consommée"
+],
+"c": 1,
+"e": "Art. 28 : commencement d'exécution + arrêt SUBI. Le simple projet ou les actes préparatoires ne suffisent pas."
+},
+{
+"cat": "G",
+"q": "Celui qui, de lui-même, renonce avant de consommer l'infraction (désistement volontaire) :",
+"o": [
+"est puni comme s'il avait réussi",
+"n'est pas punissable au titre de la tentative",
+"voit sa peine doublée"
+],
+"c": 1,
+"e": "Piège : le désistement VOLONTAIRE écarte la tentative (art. 28). Seul l'arrêt SUBI (police, résistance...) rend la tentative punissable."
+},
+{
+"cat": "G",
+"q": "Voler dans une poche vide : l'infraction est impossible. Est-ce punissable ?",
+"o": [
+"non, aucune infraction",
+"oui, comme tentative",
+"seulement si la victime porte plainte"
+],
+"c": 1,
+"e": "Art. 28 : l'infraction manquée ou impossible (de fait) reste punissable comme tentative ; l'auteur a tout fait pour réussir."
+},
+{
+"cat": "G",
+"q": "Le complice (art. 30) encourt en principe :",
+"o": [
+"la moitié de la peine de l'auteur",
+"la même peine que l'auteur",
+"une simple amende"
+],
+"c": 1,
+"e": "Art. 30 : emprunt de criminalité — le complice encourt la peine de l'auteur principal."
+},
+{
+"cat": "G",
+"q": "Fournir une arme et des instructions à l'auteur, sans être sur les lieux, c'est :",
+"o": [
+"de la complicité",
+"de la non-dénonciation",
+"sans conséquence pénale"
+],
+"c": 0,
+"e": "Art. 30 : complicité par fourniture de moyens et par instructions. La présence sur les lieux n'est pas requise."
+},
+{
+"cat": "G",
+"q": "Deux personnes réalisent ensemble tous les éléments du vol. Elles sont :",
+"o": [
+"coauteurs",
+"l'une auteur, l'autre complice",
+"de simples témoins"
+],
+"c": 0,
+"e": "Piège coauteur / complice : chacun réunit les éléments de l'infraction => coauteurs (art. 30 vise le complice, qui n'accomplit pas l'acte principal)."
+},
+{
+"cat": "G",
+"q": "La provocation par dons, promesses ou menaces qui pousse à commettre l'infraction est :",
+"o": [
+"une complicité (art. 30)",
+"une circonstance atténuante",
+"sans portée si elle échoue"
+],
+"c": 0,
+"e": "Art. 30 : la provocation par dons, promesses, menaces, abus d'autorité ou instructions est un mode de complicité."
+},
+{
+"cat": "G",
+"q": "La légitime défense (art. 98) suppose une riposte :",
+"o": [
+"différée, à titre de punition",
+"concomitante, nécessaire et proportionnée",
+"systématiquement mortelle"
+],
+"c": 1,
+"e": "Art. 98 : la défense doit répondre à une attaque injuste et actuelle, être nécessaire, concomitante et proportionnée."
+},
+{
+"cat": "G",
+"q": "Riposter en tuant l'auteur d'une simple gifle :",
+"o": [
+"reste de la légitime défense",
+"fait perdre le bénéfice : la riposte est disproportionnée",
+"est toujours justifié"
+],
+"c": 1,
+"e": "Piège : la proportionnalité est une condition (art. 98). L'excès de défense fait perdre la justification."
+},
+{
+"cat": "G",
+"q": "Repousser de nuit l'escalade ou l'effraction d'une maison habitée :",
+"o": [
+"est présumé légitime défense",
+"est toujours un meurtre",
+"exige une plainte préalable"
+],
+"c": 0,
+"e": "Art. 98 : la loi présume la légitime défense dans ce cas (défense nocturne contre l'intrusion d'un lieu habité)."
+},
+{
+"cat": "G",
+"q": "Les faits ordonnés ou autorisés par la loi (art. 99) :",
+"o": [
+"constituent une infraction atténuée",
+"ne constituent pas une infraction",
+"sont punis comme une tentative"
+],
+"c": 1,
+"e": "Art. 99 : l'ordre ou la permission de la loi est un fait justificatif — il n'y a pas d'infraction."
+},
+{
+"cat": "G",
+"q": "L'ordre de l'autorité légitime (art. 100) NE justifie PAS l'acte lorsqu'il est :",
+"o": [
+"verbal",
+"manifestement illégal",
+"donné par un supérieur hiérarchique"
+],
+"c": 1,
+"e": "Art. 100 : un ordre manifestement illégal n'efface pas l'infraction ; l'exécutant reste responsable."
+},
+{
+"cat": "G",
+"q": "Le trouble mental qui ABOLIT le discernement au moment des faits (art. 102) :",
+"o": [
+"atténue seulement la peine",
+"supprime la responsabilité pénale",
+"est sans effet"
+],
+"c": 1,
+"e": "Art. 102 : l'abolition de la volonté/conscience entraîne l'irresponsabilité (mesures de sûreté possibles)."
+},
+{
+"cat": "G",
+"q": "Le trouble mental qui ALTÈRE le discernement sans l'abolir :",
+"o": [
+"supprime toute responsabilité",
+"laisse l'auteur responsable, la peine pouvant être adaptée",
+"aggrave automatiquement la peine"
+],
+"c": 1,
+"e": "Piège abolition / altération : seule l'ABOLITION (art. 102) irresponsabilise. L'altération laisse la responsabilité, avec adaptation possible de la peine."
+},
+{
+"cat": "G",
+"q": "Celui qui commet l'infraction sous l'empire de l'alcool qu'il a volontairement consommé :",
+"o": [
+"est irresponsable",
+"reste responsable : l'ivresse volontaire n'excuse pas",
+"bénéficie d'une excuse absolutoire"
+],
+"c": 1,
+"e": "L'intoxication volontaire n'efface pas la responsabilité (art. 102 vise le trouble subi, pas l'ivresse recherchée)."
+},
+{
+"cat": "G",
+"q": "La contrainte irrésistible (force à laquelle on ne peut se soustraire) est :",
+"o": [
+"une circonstance aggravante",
+"une excuse absolutoire (art. 11)",
+"sans effet"
+],
+"c": 1,
+"e": "Art. 11 : la contrainte irrésistible est une excuse absolutoire — culpabilité reconnue, mais pas de peine."
+},
+{
+"cat": "G",
+"q": "Un mineur de moins de 10 ans :",
+"o": [
+"subit la moitié de la peine",
+"ne peut être ni qualifié ni poursuivi",
+"est jugé comme un majeur"
+],
+"c": 1,
+"e": "Art. 113 : aucune qualification ni poursuite avant 10 ans."
+},
+{
+"cat": "G",
+"q": "Un mineur de moins de 13 ans reconnu coupable bénéficie :",
+"o": [
+"de l'excuse absolutoire de minorité",
+"de l'excuse atténuante",
+"d'aucune faveur"
+],
+"c": 0,
+"e": "Art. 113 : excuse absolutoire — seules des mesures éducatives, pas de peine."
+},
+{
+"cat": "G",
+"q": "Un mineur de 13 à 18 ans bénéficie :",
+"o": [
+"de l'excuse absolutoire",
+"de l'excuse atténuante (moitié des peines)",
+"d'aucune faveur"
+],
+"c": 1,
+"e": "Art. 113 et 112 : excuse atténuante de minorité => application de la moitié des peines."
+},
+{
+"cat": "G",
+"q": "Différence entre excuse atténuante et circonstance atténuante :",
+"o": [
+"c'est la même chose",
+"l'excuse est légale et obligatoire ; la circonstance atténuante est judiciaire et facultative",
+"l'inverse"
+],
+"c": 1,
+"e": "Piège fréquent : l'excuse (art. 11) s'impose au juge ; la circonstance atténuante (art. 114) relève de son pouvoir d'appréciation."
+},
+{
+"cat": "G",
+"q": "L'excuse absolutoire a pour effet :",
+"o": [
+"de réduire la peine de moitié",
+"de dispenser de toute peine, la culpabilité restant établie",
+"d'effacer l'infraction"
+],
+"c": 1,
+"e": "Art. 11 : l'excuse absolutoire fait reconnaître coupable mais dispense de peine (≠ excuse atténuante, qui réduit)."
+},
+{
+"cat": "G",
+"q": "Les circonstances aggravantes prévues par la loi :",
+"o": [
+"changent la qualification de l'infraction",
+"excluent les circonstances atténuantes et le sursis",
+"réduisent la peine"
+],
+"c": 1,
+"e": "Elles sont sans effet sur la qualification mais écartent les circonstances atténuantes et le sursis."
+},
+{
+"cat": "G",
+"q": "Les circonstances atténuantes (art. 114) sont accordées :",
+"o": [
+"de plein droit par la loi",
+"par le juge, à titre facultatif (sauf exclusion légale)",
+"par le procureur"
+],
+"c": 1,
+"e": "Art. 114 : pouvoir discrétionnaire du juge, sauf lorsque la loi les exclut."
+},
+{
+"cat": "G",
+"q": "En cas de concours réel d'infractions, les peines de même nature (art. 119) :",
+"o": [
+"s'additionnent intégralement",
+"ne se cumulent pas : on retient la plus sévère",
+"se compensent et s'annulent"
+],
+"c": 1,
+"e": "Art. 119 : non-cumul des peines de même nature — on retient la plus forte, qui absorbe les autres."
+},
+{
+"cat": "G",
+"q": "Une loi pénale nouvelle PLUS DOUCE que l'ancienne :",
+"o": [
+"ne s'applique jamais aux faits antérieurs",
+"s'applique aux faits antérieurs non définitivement jugés (rétroactivité in mitius)",
+"double la peine"
+],
+"c": 1,
+"e": "Principe : non-rétroactivité de la loi plus sévère, mais rétroactivité de la loi plus douce (in mitius)."
+},
+{
+"cat": "G",
+"q": "Une infraction dont un seul élément constitutif se réalise en Côte d'Ivoire :",
+"o": [
+"échappe à la loi ivoirienne",
+"est réputée commise en Côte d'Ivoire (territorialité)",
+"relève du pays étranger uniquement"
+],
+"c": 1,
+"e": "Principe de territorialité : il suffit qu'un fait constitutif (ou indivisible) se produise sur le territoire pour que la loi ivoirienne s'applique."
+},
+{
+"cat": "G",
+"q": "La responsabilité pénale d'une personne morale suppose une infraction :",
+"o": [
+"commise par n'importe quel salarié",
+"commise pour son compte par ses organes ou représentants",
+"matériellement impossible"
+],
+"c": 1,
+"e": "Principe : la personne morale répond des infractions commises POUR SON COMPTE par ses organes ou représentants ; cumul possible avec la personne physique."
+},
+{
+"cat": "G",
+"q": "On ne peut être pénalement responsable :",
+"o": [
+"que de son propre fait",
+"du fait d'autrui en toute hypothèse",
+"du fait de ses proches"
+],
+"c": 0,
+"e": "Principe de personnalité : nul n'est responsable pénalement que de son propre fait."
+},
+{
+"cat": "G",
+"q": "L'excuse de provocation (riposte immédiate à un acte illégitime d'autrui) est :",
+"o": [
+"une excuse atténuante",
+"une cause d'irresponsabilité totale",
+"une circonstance aggravante"
+],
+"c": 0,
+"e": "L'excuse de provocation est une excuse atténuante (art. 11) : elle diminue la peine sans effacer l'infraction."
+},
+{
+"cat": "P",
+"q": "Le meurtre est défini comme :",
+"o": [
+"tout homicide",
+"l'homicide volontaire",
+"l'homicide par imprudence"
+],
+"c": 1,
+"e": "Art. 378 : le meurtre est l'homicide commis volontairement (intention de donner la mort)."
+},
+{
+"cat": "P",
+"q": "Le meurtre simple (art. 380 al. 1) est puni de :",
+"o": [
+"l'emprisonnement à vie",
+"10 à 20 ans",
+"5 à 10 ans"
+],
+"c": 1,
+"e": "Art. 380 al. 1 : 10 à 20 ans. Piège majeur : le meurtre simple n'est PAS à vie — seul l'assassinat ou le meurtre aggravé le sont."
+},
+{
+"cat": "P",
+"q": "Ce qui distingue l'assassinat du meurtre, c'est :",
+"o": [
+"l'usage d'une arme à feu",
+"la préméditation ou le guet-apens",
+"la qualité de fonctionnaire de la victime"
+],
+"c": 1,
+"e": "Art. 378-2° : l'assassinat est le meurtre commis avec préméditation ou guet-apens."
+},
+{
+"cat": "P",
+"q": "L'assassinat, le parricide et l'empoisonnement (art. 379) sont punis de :",
+"o": [
+"10 à 20 ans",
+"l'emprisonnement à vie",
+"5 à 20 ans"
+],
+"c": 1,
+"e": "Art. 379 : emprisonnement à vie, sans considération du résultat pour l'empoisonnement."
+},
+{
+"cat": "P",
+"q": "L'empoisonnement est constitué :",
+"o": [
+"seulement si la victime meurt",
+"par l'administration d'une substance pouvant donner la mort, même sans décès",
+"uniquement avec un poison rare"
+],
+"c": 1,
+"e": "Art. 378/379 : l'empoisonnement est un crime formel — il est consommé par l'administration de la substance mortelle, peu importe le résultat. À vie."
+},
+{
+"cat": "P",
+"q": "Le meurtre qui accompagne ou facilite un autre crime (ex. un vol) est puni :",
+"o": [
+"de 10 à 20 ans",
+"de l'emprisonnement à vie",
+"d'une simple aggravation d'amende"
+],
+"c": 1,
+"e": "Art. 380 al. 2 : le meurtre aggravé (qui précède, accompagne ou suit un autre crime ou délit) est puni à vie."
+},
+{
+"cat": "P",
+"q": "Des coups volontaires entraînent la mort SANS intention de la donner (art. 381-1°). C'est :",
+"o": [
+"un meurtre",
+"des violences ayant entraîné la mort, 5 à 20 ans",
+"un homicide involontaire"
+],
+"c": 1,
+"e": "Art. 381-1° : 5 à 20 ans. Piège : ni meurtre (pas d'intention de tuer), ni homicide involontaire (la violence, elle, est volontaire)."
+},
+{
+"cat": "P",
+"q": "Des violences volontaires causant une mutilation ou une infirmité permanente (art. 381-2°) :",
+"o": [
+"1 à 5 ans",
+"5 à 10 ans",
+"à vie"
+],
+"c": 1,
+"e": "Art. 381-2° : 5 à 10 ans."
+},
+{
+"cat": "P",
+"q": "Des violences entraînant une ITT de plus de 10 jours (art. 381-3°) :",
+"o": [
+"1 à 5 ans",
+"5 à 20 ans",
+"15 jours à 6 mois"
+],
+"c": 0,
+"e": "Art. 381-3° : 1 à 5 ans."
+},
+{
+"cat": "P",
+"q": "La voie de fait (art. 382) est punie de :",
+"o": [
+"1 à 5 ans",
+"15 jours à 6 mois",
+"3 mois à 2 ans"
+],
+"c": 1,
+"e": "Art. 382 : 15 jours à 6 mois — l'infraction la moins sévère des atteintes à l'intégrité physique."
+},
+{
+"cat": "P",
+"q": "Les coups ayant entraîné la mort commis sur un ascendant, un conjoint ou un concubin (art. 383-1°) :",
+"o": [
+"5 à 20 ans",
+"l'emprisonnement à vie",
+"5 à 10 ans"
+],
+"c": 1,
+"e": "Art. 383-1° : la qualité de la victime (proche) fait passer les violences mortelles de 5-20 ans (381-1°) à l'emprisonnement à vie."
+},
+{
+"cat": "P",
+"q": "Administrer une substance NUISIBLE à la santé mais non mortelle (art. 385) :",
+"o": [
+"est un empoisonnement",
+"est l'administration de substances nuisibles, distincte de l'empoisonnement",
+"n'est pas une infraction"
+],
+"c": 1,
+"e": "Piège : si la substance peut donner la mort => empoisonnement (379, à vie). Si elle est seulement nuisible => art. 385 (1 à 5 ans à la base)."
+},
+{
+"cat": "P",
+"q": "L'homicide involontaire (art. 392 al. 1) est puni de :",
+"o": [
+"3 mois à 3 ans",
+"5 à 10 ans",
+"l'emprisonnement à vie"
+],
+"c": 0,
+"e": "Art. 392 al. 1 : 3 mois à 3 ans. Il résulte d'une faute (imprudence, négligence), sans intention ni violence volontaire."
+},
+{
+"cat": "P",
+"q": "Les blessures involontaires entraînant une ITT (art. 392 al. 2) :",
+"o": [
+"1 mois à 1 an",
+"5 à 10 ans",
+"à vie"
+],
+"c": 0,
+"e": "Art. 392 al. 2 : 1 mois à 1 an."
+},
+{
+"cat": "P",
+"q": "Un automobiliste imprudent tue un piéton. La qualification est :",
+"o": [
+"meurtre",
+"homicide involontaire (art. 392)",
+"violences ayant entraîné la mort (381-1°)"
+],
+"c": 1,
+"e": "Piège : pas de violence volontaire ni d'intention => homicide involontaire (art. 392), et non 380 (meurtre) ni 381-1°."
+},
+{
+"cat": "P",
+"q": "L'omission de porter secours (art. 391) est punie de :",
+"o": [
+"3 mois à 5 ans",
+"l'emprisonnement à vie",
+"une amende seulement"
+],
+"c": 0,
+"e": "Art. 391 : 3 mois à 5 ans, peine doublée si une obligation professionnelle d'assistance existait."
+},
+{
+"cat": "P",
+"q": "L'obligation de porter secours s'impose lorsqu'on peut le faire :",
+"o": [
+"en toute circonstance, même au péril de sa vie",
+"sans risque pour soi-même ou pour les tiers",
+"seulement si l'on est médecin"
+],
+"c": 1,
+"e": "Art. 391 : l'assistance n'est exigée que si elle est possible SANS risque pour soi ou autrui (par action directe ou en provoquant des secours)."
+},
+{
+"cat": "P",
+"q": "Le viol suppose :",
+"o": [
+"tout attouchement",
+"un acte de pénétration sexuelle par violence, contrainte ou surprise",
+"une simple parole obscène"
+],
+"c": 1,
+"e": "Art. 403 : le viol implique une pénétration sexuelle imposée. Sans pénétration, on est sur l'attentat à la pudeur (art. 405)."
+},
+{
+"cat": "P",
+"q": "Le viol simple (art. 403) est puni de :",
+"o": [
+"1 à 5 ans",
+"5 à 20 ans",
+"l'emprisonnement à vie"
+],
+"c": 1,
+"e": "Art. 403 : 5 à 20 ans (réclusion temporaire)."
+},
+{
+"cat": "P",
+"q": "Le viol aggravé (sur mineur, par un ascendant, à plusieurs, avec arme) (art. 404) :",
+"o": [
+"2 à 5 ans",
+"5 à 10 ans",
+"l'emprisonnement à vie"
+],
+"c": 2,
+"e": "Art. 404 : les circonstances aggravantes du viol le font passer à l'emprisonnement à vie."
+},
+{
+"cat": "P",
+"q": "Le viol ayant entraîné une mutilation, une infirmité permanente ou la mort :",
+"o": [
+"reste à 5-20 ans",
+"est puni de l'emprisonnement à vie (art. 403 in fine)",
+"devient un homicide involontaire"
+],
+"c": 1,
+"e": "Art. 403 in fine : ces conséquences graves portent le viol à l'emprisonnement à vie."
+},
+{
+"cat": "P",
+"q": "Une atteinte sexuelle SANS pénétration, c'est :",
+"o": [
+"un viol",
+"un attentat à la pudeur (art. 405)",
+"une voie de fait"
+],
+"c": 1,
+"e": "Piège viol / attentat à la pudeur : l'absence de pénétration fait basculer du viol (403) vers l'attentat à la pudeur (405)."
+},
+{
+"cat": "P",
+"q": "L'attentat à la pudeur sans violence (base, art. 405) est puni de :",
+"o": [
+"1 à 3 ans",
+"5 à 10 ans",
+"à vie"
+],
+"c": 0,
+"e": "Art. 405 : 1 à 3 ans pour l'attentat à la pudeur consommé ou tenté, sans violence."
+},
+{
+"cat": "P",
+"q": "L'attentat à la pudeur AVEC violences (art. 406) est puni de :",
+"o": [
+"2 à 5 ans (porté à 5-10 ans si aggravé)",
+"15 jours à 6 mois",
+"à vie"
+],
+"c": 0,
+"e": "Art. 406 : 2 à 5 ans avec violences, porté à 5-10 ans en cas d'aggravation (ascendant, pluralité d'auteurs, victime mineure, corps médical)."
+},
+{
+"cat": "P",
+"q": "L'inceste (art. 410) est puni de :",
+"o": [
+"6 mois à 1 an",
+"5 à 10 ans",
+"à vie"
+],
+"c": 0,
+"e": "Art. 410 : 6 mois à 1 an (et amende, ou l'une des deux peines)."
+},
+{
+"cat": "P",
+"q": "L'outrage public à la pudeur (art. 416) est puni de :",
+"o": [
+"3 mois à 2 ans, doublé si commis sur un mineur ou en sa présence",
+"5 à 10 ans",
+"à vie"
+],
+"c": 0,
+"e": "Art. 416 : 3 mois à 2 ans, peines doublées si l'acte vise un mineur ou est commis en sa présence."
+},
+{
+"cat": "P",
+"q": "L'article 417 du Code pénal vise :",
+"o": [
+"l'outrage public à la pudeur",
+"la diffusion de l'identité de la victime",
+"le viol aggravé"
+],
+"c": 1,
+"e": "Piège : l'art. 417 n'est PAS l'outrage public (entièrement dans le 416). Il punit la diffusion de l'identité de la victime (2 mois à 2 ans)."
+},
+{
+"cat": "B",
+"q": "Le vol est défini (art. 457) comme :",
+"o": [
+"la soustraction frauduleuse de la chose d'autrui",
+"la remise trompée d'un bien",
+"le détournement d'un dépôt"
+],
+"c": 0,
+"e": "Art. 457 : soustraction frauduleuse de la chose d'autrui (appréhension contre le gré du propriétaire)."
+},
+{
+"cat": "B",
+"q": "Le vol simple (art. 458) est puni de :",
+"o": [
+"1 à 5 ans",
+"5 à 10 ans",
+"10 à 20 ans"
+],
+"c": 1,
+"e": "Art. 458 : 5 à 10 ans."
+},
+{
+"cat": "B",
+"q": "Le vol avec effraction, escalade, en réunion ou de nuit (art. 459) :",
+"o": [
+"5 à 10 ans",
+"10 à 20 ans",
+"à vie"
+],
+"c": 1,
+"e": "Art. 459 : ces circonstances aggravantes portent le vol à 10-20 ans."
+},
+{
+"cat": "B",
+"q": "Le vol commis par un auteur armé, ou avec des violences ayant entraîné mort ou blessures (art. 460) :",
+"o": [
+"10 à 20 ans",
+"l'emprisonnement à vie",
+"5 à 10 ans"
+],
+"c": 1,
+"e": "Art. 460 : le vol à main armée ou avec violences graves est puni de l'emprisonnement à vie."
+},
+{
+"cat": "B",
+"q": "Forcer une porte pour voler un local qui se révèle vide :",
+"o": [
+"n'est pas punissable",
+"est une tentative de vol punissable",
+"est un vol consommé"
+],
+"c": 1,
+"e": "Art. 28/461 : commencement d'exécution (effraction) + absence de butin par une cause indépendante (local vide) => tentative de vol punissable."
+},
+{
+"cat": "B",
+"q": "Consommer un repas au restaurant en sachant ne pas pouvoir payer, c'est :",
+"o": [
+"un vol",
+"la filouterie (art. 463)",
+"un abus de confiance"
+],
+"c": 1,
+"e": "Art. 463 : la filouterie (resto, hôtel, carburant, taxi sans pouvoir payer) est punie de 3 mois à 1 an. Ce n'est pas un vol (pas de soustraction)."
+},
+{
+"cat": "B",
+"q": "Détourner une chose qui vous avait été remise à charge de la rendre, c'est :",
+"o": [
+"un vol",
+"un abus de confiance (art. 467)",
+"une escroquerie"
+],
+"c": 1,
+"e": "Art. 467 : abus de confiance. Clé : la chose a été REMISE volontairement, puis détournée — pas de soustraction."
+},
+{
+"cat": "B",
+"q": "L'abus de confiance (art. 467) est puni de :",
+"o": [
+"1 à 5 ans",
+"5 à 10 ans",
+"à vie"
+],
+"c": 0,
+"e": "Art. 467 : 1 à 5 ans, peines doublées (art. 468) si l'auteur gère les affaires d'autrui (mandataire, gérant...)."
+},
+{
+"cat": "B",
+"q": "Se faire remettre un bien à l'aide de manœuvres frauduleuses ou d'une fausse qualité, c'est :",
+"o": [
+"un vol",
+"une escroquerie (art. 471)",
+"un recel"
+],
+"c": 1,
+"e": "Art. 471 : escroquerie. La victime remet VOLONTAIREMENT, mais trompée par les manœuvres."
+},
+{
+"cat": "B",
+"q": "L'escroquerie (art. 471) est punie de :",
+"o": [
+"1 à 5 ans",
+"5 à 10 ans",
+"à vie"
+],
+"c": 0,
+"e": "Art. 471 : 1 à 5 ans (jusqu'à 10 ans en cas d'appel public à l'épargne)."
+},
+{
+"cat": "B",
+"q": "Obtenir par la violence ou la contrainte la signature d'un acte ou la remise de fonds, c'est :",
+"o": [
+"le chantage",
+"l'extorsion (art. 474)",
+"le recel"
+],
+"c": 1,
+"e": "Art. 474 : extorsion (5 à 10 ans). La contrainte porte sur un acte patrimonial obtenu par la force."
+},
+{
+"cat": "B",
+"q": "Obtenir un bien sous la menace de révélations diffamatoires, c'est :",
+"o": [
+"l'extorsion",
+"le chantage (art. 475)",
+"l'escroquerie"
+],
+"c": 1,
+"e": "Piège extorsion / chantage : l'extorsion (474) use de violence physique ; le chantage (475, 1 à 5 ans) use de la menace de révélations."
+},
+{
+"cat": "B",
+"q": "Le recel (art. 477) consiste à :",
+"o": [
+"soustraire un bien",
+"détenir ou transmettre une chose en la sachant d'origine délictueuse",
+"tromper la victime"
+],
+"c": 1,
+"e": "Art. 477 : le receleur ne soustrait pas — il détient, dissimule ou profite d'une chose qu'il sait issue d'un crime ou d'un délit (1 à 5 ans)."
+},
+{
+"cat": "B",
+"q": "Le recel d'une chose VOLÉE est puni :",
+"o": [
+"d'une simple amende",
+"des peines de l'art. 458 (vol), sans sursis",
+"de 6 mois au maximum"
+],
+"c": 1,
+"e": "Art. 477 : le recel de chose volée emprunte les peines du vol (art. 458) et exclut le sursis."
+},
+{
+"cat": "B",
+"q": "Le recel du produit d'un CRIME est puni :",
+"o": [
+"de la peine du crime d'origine",
+"toujours de 1 à 5 ans",
+"d'une contravention"
+],
+"c": 0,
+"e": "Art. 477 : lorsqu'il porte sur le produit d'un crime, le recel est puni de la peine de ce crime."
+},
+{
+"cat": "B",
+"q": "Falsifier des factures ou un document de commerce, c'est :",
+"o": [
+"un vol",
+"un faux en écriture de commerce (art. 479)",
+"une voie de fait"
+],
+"c": 1,
+"e": "Art. 479 : faux en écriture privée, de commerce ou de banque."
+},
+{
+"cat": "B",
+"q": "La destruction du bien d'autrui par incendie (art. 486) est punie de :",
+"o": [
+"1 à 5 ans",
+"5 à 20 ans (à vie si mort ou infirmité)",
+"2 à 10 ans"
+],
+"c": 1,
+"e": "Art. 486 : 5 à 20 ans ; emprisonnement à vie si l'incendie cause mort ou infirmité permanente (même sur le bien de l'auteur)."
+},
+{
+"cat": "B",
+"q": "La destruction simple d'un bien d'autrui (art. 485) est punie de :",
+"o": [
+"1 à 5 ans (2 à 10 ans si bien public ou habité)",
+"5 à 20 ans",
+"à vie"
+],
+"c": 0,
+"e": "Art. 485 : 1 à 5 ans, porté à 2-10 ans si le bien est public, habité ou un transport public."
+},
+{
+"cat": "B",
+"q": "L'association de malfaiteurs (art. 203 s.) est punissable :",
+"o": [
+"seulement si le crime projeté est commis",
+"dès l'entente accompagnée d'un acte matériel, même sans crime réalisé",
+"seulement comme circonstance aggravante"
+],
+"c": 1,
+"e": "Art. 203 s. : c'est une infraction AUTONOME et préventive. On punit l'entente elle-même (réunions, repérage, armes), même si le crime projeté n'est jamais commis ni tenté."
+},
+{
+"cat": "B",
+"q": "L'association de malfaiteurs lorsque l'auteur est armé ou muni d'instruments :",
+"o": [
+"n'est pas punissable",
+"est punie de 5 à 10 ans",
+"devient une simple contravention"
+],
+"c": 1,
+"e": "Art. 203 s. : la participation est aggravée (5 à 10 ans) lorsque l'auteur est armé ou dispose d'instruments propres à commettre l'infraction."
+},
+{
+"cat": "B",
+"q": "Celui qui révèle l'association de malfaiteurs aux autorités AVANT toute poursuite :",
+"o": [
+"voit sa peine doublée",
+"bénéficie d'une excuse absolutoire",
+"n'a aucun avantage"
+],
+"c": 1,
+"e": "Art. 203 s. : excuse absolutoire de dénonciation pour celui qui révèle l'entente avant toute poursuite."
+},
+{
+"cat": "B",
+"q": "Fournir habituellement asile, lieu de réunion ou instruments à des malfaiteurs (recel de malfaiteurs) :",
+"o": [
+"est puni comme complice",
+"n'est pas une infraction",
+"est une simple circonstance atténuante"
+],
+"c": 0,
+"e": "Art. 203 s. : le recel de malfaiteurs est puni comme la complicité."
+},
+{
+"cat": "B",
+"q": "TEST. La victime a remis elle-même le bien, librement, puis on l'a détourné. C'est :",
+"o": [
+"un vol",
+"une escroquerie",
+"un abus de confiance"
+],
+"c": 2,
+"e": "Remise LIBRE (sans tromperie) + détournement => abus de confiance (467). Si la remise avait été obtenue par tromperie, ce serait l'escroquerie (471)."
+},
+{
+"cat": "B",
+"q": "TEST. La victime a remis le bien, mais trompée par une mise en scène. C'est :",
+"o": [
+"un vol",
+"une escroquerie",
+"un abus de confiance"
+],
+"c": 1,
+"e": "Remise obtenue PAR TROMPERIE (manœuvres frauduleuses) => escroquerie (471). La remise existe, mais le consentement est vicié."
+},
+{
+"cat": "B",
+"q": "TEST. Le bien a été pris sans aucune remise, contre le gré du propriétaire. C'est :",
+"o": [
+"un vol",
+"une escroquerie",
+"un abus de confiance"
+],
+"c": 0,
+"e": "Aucune remise, appréhension contre le gré du propriétaire => vol (457). Réflexe : pas de remise = vol."
+},
+{
+"cat": "B",
+"q": "Un caissier détourne peu à peu l'argent de la caisse qui lui est confié. C'est :",
+"o": [
+"un vol",
+"un abus de confiance (la chose lui est remise par fonction)",
+"une escroquerie"
+],
+"c": 1,
+"e": "Piège : le caissier DÉTIENT les fonds par sa fonction => abus de confiance (467, aggravé 468), et non vol — il n'y a pas de soustraction."
+},
+{
+"cat": "B",
+"q": "Le receleur se distingue du voleur en ce qu'il :",
+"o": [
+"soustrait lui-même la chose",
+"intervient en aval, en détenant la chose déjà soustraite",
+"trompe la victime"
+],
+"c": 1,
+"e": "Art. 477 : le recel est une infraction de conséquence — le receleur n'accomplit pas la soustraction, il profite du produit de l'infraction d'autrui."
+},
+{
+"cat": "PR",
+"q": "Un crime est jugé par :",
+"o": [
+"le tribunal correctionnel",
+"le tribunal criminel",
+"le tribunal de simple police"
+],
+"c": 1,
+"e": "Principe : crime => tribunal criminel, après instruction obligatoire."
+},
+{
+"cat": "PR",
+"q": "Un délit est jugé par :",
+"o": [
+"le tribunal criminel",
+"le tribunal correctionnel",
+"le tribunal de simple police"
+],
+"c": 1,
+"e": "Principe : délit => tribunal correctionnel."
+},
+{
+"cat": "PR",
+"q": "Une contravention est jugée par :",
+"o": [
+"le tribunal correctionnel",
+"le tribunal de simple police",
+"le tribunal criminel"
+],
+"c": 1,
+"e": "Principe : contravention => tribunal de simple police."
+},
+{
+"cat": "PR",
+"q": "Pour un crime, l'instruction (information judiciaire) est :",
+"o": [
+"facultative",
+"obligatoire",
+"interdite"
+],
+"c": 1,
+"e": "Principe : en matière criminelle, l'instruction est obligatoire avant tout jugement."
+},
+{
+"cat": "PR",
+"q": "La procédure de flagrant délit s'applique :",
+"o": [
+"aux crimes",
+"aux délits, jamais aux crimes",
+"aux seules contraventions"
+],
+"c": 1,
+"e": "Principe : le flagrant délit suppose un DÉLIT et un état de flagrance ; un crime passe par l'instruction."
+},
+{
+"cat": "PR",
+"q": "Un mineur peut-il être jugé selon la procédure de flagrant délit ?",
+"o": [
+"oui",
+"non, jamais",
+"seulement après 16 ans"
+],
+"c": 1,
+"e": "Principe : le mineur relève toujours de la juridiction des mineurs et de sa procédure spéciale, jamais du flagrant délit."
+},
+{
+"cat": "PR",
+"q": "L'état de flagrance suppose une infraction :",
+"o": [
+"ancienne, révélée par une plainte",
+"qui se commet ou vient de se commettre (ou poursuite par la clameur publique)",
+"jugée définitivement"
+],
+"c": 1,
+"e": "Principe : flagrance = infraction actuelle ou très récente, ou auteur poursuivi par la clameur publique / trouvé porteur d'objets compromettants."
+},
+{
+"cat": "PR",
+"q": "Décider de poursuivre, de classer ou de recourir à une alternative relève :",
+"o": [
+"du juge d'instruction",
+"du procureur (opportunité des poursuites)",
+"de la police seule"
+],
+"c": 1,
+"e": "Principe de l'opportunité des poursuites : le ministère public apprécie la suite à donner."
+},
+{
+"cat": "PR",
+"q": "La médiation pénale est :",
+"o": [
+"une peine prononcée par le tribunal",
+"une alternative aux poursuites décidée par le procureur",
+"une voie de recours"
+],
+"c": 1,
+"e": "Principe : la médiation pénale est une alternative aux poursuites, à la main du procureur."
+},
+{
+"cat": "PR",
+"q": "Un abus de confiance qui se révèle à l'audit, après coup, se concilie-t-il avec le flagrant délit ?",
+"o": [
+"oui, toujours",
+"non : l'infraction occulte révélée après coup n'est pas en état de flagrance",
+"seulement si la victime le demande"
+],
+"c": 1,
+"e": "Piège : une infraction occulte découverte longtemps après (abus de confiance, faux) est hors flagrance — la procédure de flagrant délit est inadaptée."
+},
+{
+"cat": "PR",
+"q": "Le juge d'instruction instruit :",
+"o": [
+"uniquement à charge",
+"à charge et à décharge",
+"seulement à décharge"
+],
+"c": 1,
+"e": "Principe : l'instruction est menée à charge ET à décharge."
+},
+{
+"cat": "PR",
+"q": "Le ministère public (parquet) a pour rôle :",
+"o": [
+"de juger l'affaire",
+"d'exercer l'action publique (poursuivre)",
+"de défendre l'accusé"
+],
+"c": 1,
+"e": "Principe : le parquet exerce l'action publique au nom de la société ; il poursuit, il ne juge pas."
+},
+{
+"cat": "PR",
+"q": "La victime qui se constitue partie civile exerce :",
+"o": [
+"l'action publique",
+"l'action civile (réparation du préjudice)",
+"la défense du prévenu"
+],
+"c": 1,
+"e": "Principe : la partie civile exerce l'action civile en réparation, distincte de l'action publique du parquet."
+},
+{
+"cat": "PR",
+"q": "Lorsqu'un mineur a participé avec des majeurs, son cas doit :",
+"o": [
+"être jugé avec les majeurs",
+"être disjoint et renvoyé à la juridiction des mineurs",
+"être classé sans suite"
+],
+"c": 1,
+"e": "Principe : disjonction — le mineur ne peut être jugé avec les majeurs ; il relève de la juridiction des mineurs."
+},
+{
+"cat": "PR",
+"q": "La garde à vue d'un mineur de moins de 13 ans est :",
+"o": [
+"libre comme pour un majeur",
+"en principe exclue (au plus une retenue encadrée)",
+"d'une durée doublée"
+],
+"c": 1,
+"e": "Principe : pas de garde à vue avant 13 ans ; au-delà, garde à vue possible mais sous garanties renforcées (parents, avocat, durée adaptée)."
+},
+{
+"cat": "PR",
+"q": "La présomption d'innocence signifie que :",
+"o": [
+"l'accusé doit prouver son innocence",
+"la charge de la preuve pèse sur l'accusation",
+"le doute profite à l'accusation"
+],
+"c": 1,
+"e": "Principe : c'est à l'accusation de prouver la culpabilité ; le doute profite à l'accusé."
+},
+{
+"cat": "PR",
+"q": "Quand plusieurs infractions connexes de gravité différente sont commises, la juridiction compétente est :",
+"o": [
+"la moins élevée",
+"la plus élevée (qui attire le tout)",
+"tirée au sort"
+],
+"c": 1,
+"e": "Principe de connexité : la juridiction la plus élevée (ex. criminelle) attire les infractions connexes, sous réserve de la disjonction du mineur."
+}
 ]
