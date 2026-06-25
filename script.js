@@ -3,13 +3,15 @@
 
   var BANK = [];
   var CATS = {G:"Généralités", P:"Personnes", B:"Biens", PR:"Procédure"};
-  var SKEY = "penalci_stats_v1", BKEY = "penalci_best_v2";
+  var SKEY = "penalci_stats_v1", BKEY = "penalci_best_v2", SND="penalci_sound";
   var EXAM_N = 20;
+  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function load(k,d){ try{ var v=localStorage.getItem(k); return v?JSON.parse(v):d; }catch(e){ return d; } }
   function save(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
   var stats = load(SKEY, {});
   var best = load(BKEY, {quiz:0, duel:0, exam:0});
+  var soundOn = load(SND, true);
 
   function statOf(id){ return stats[id] || (stats[id]={seen:0, wrong:0}); }
   function weight(id){ var s=statOf(id); var rate=s.seen?s.wrong/s.seen:0; var fresh=s.seen?0:0.6; return 1+2.2*rate+fresh; }
@@ -35,12 +37,69 @@
   }
   function pulse(el){ if(!el) return; el.classList.remove("pop"); void el.offsetWidth; el.classList.add("pop"); }
   function setText(id,v){ var el=$(id); if(el) el.textContent=v; }
+  function setFire(on){ var st=$("p-streak"); if(st) st.classList.toggle("fire", !!on); }
 
   function toast(msg){
     var t=$("toast"); t.textContent=msg; t.hidden=false; void t.offsetWidth; t.classList.add("on");
     clearTimeout(t._t); t._t=setTimeout(function(){ t.classList.remove("on"); setTimeout(function(){ t.hidden=true; },300); }, 2200);
   }
 
+  /* ---------------- SON (WebAudio) ---------------- */
+  var actx=null;
+  function ensureAudio(){
+    if(!soundOn) return;
+    try{
+      if(!actx){ var AC=window.AudioContext||window.webkitAudioContext; if(AC) actx=new AC(); }
+      if(actx && actx.state==="suspended") actx.resume();
+    }catch(e){}
+  }
+  function tone(freq, start, dur, type, vol){
+    if(!soundOn || !actx) return;
+    try{
+      var o=actx.createOscillator(), g=actx.createGain(), t=actx.currentTime+start;
+      o.type=type||"sine"; o.frequency.value=freq;
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(vol||0.12, t+0.01);
+      g.gain.exponentialRampToValueAtTime(0.0001, t+dur);
+      o.connect(g); g.connect(actx.destination); o.start(t); o.stop(t+dur+0.02);
+    }catch(e){}
+  }
+  function sfxCorrect(){ tone(660,0,0.12,"sine",0.13); tone(990,0.08,0.16,"sine",0.12); }
+  function sfxWrong(){ tone(170,0,0.18,"sawtooth",0.10); tone(120,0.06,0.20,"sawtooth",0.09); }
+  function sfxSpark(){ tone(1320,0,0.08,"triangle",0.10); tone(1760,0.05,0.10,"triangle",0.08); }
+  function sfxFanfare(){ [523,659,784,1046].forEach(function(f,i){ tone(f,i*0.12,0.22,"sine",0.13); }); }
+  function sfxTick(){ tone(880,0,0.05,"square",0.05); }
+
+  /* ---------------- CONFETTIS ---------------- */
+  function confetti(power){
+    if(reduced) return;
+    var c=$("confetti-canvas");
+    if(!c){ c=document.createElement("canvas"); c.id="confetti-canvas"; document.body.appendChild(c); }
+    var dpr=Math.min(window.devicePixelRatio||1, 2);
+    c.width=Math.floor(window.innerWidth*dpr); c.height=Math.floor(window.innerHeight*dpr);
+    var ctx=c.getContext("2d");
+    var cols=["#9B2226","#B0832F","#15233B","#1C7A55","#caa356"];
+    var N=Math.round(50+power*130), P=[];
+    for(var i=0;i<N;i++){
+      P.push({ x:c.width*(0.3+Math.random()*0.4), y:c.height*0.32,
+        vx:(Math.random()-0.5)*15*dpr, vy:(-7-Math.random()*11)*dpr, g:0.26*dpr,
+        s:(6+Math.random()*6)*dpr, rot:Math.random()*6.28, vr:(Math.random()-0.5)*0.32,
+        col:cols[i%cols.length], life:1 });
+    }
+    var t0=performance.now();
+    function frame(now){
+      ctx.clearRect(0,0,c.width,c.height); var alive=false;
+      for(var k=0;k<P.length;k++){ var p=P[k]; p.vy+=p.g; p.x+=p.vx; p.y+=p.vy; p.rot+=p.vr; p.life-=0.006;
+        if(p.life>0 && p.y<c.height+30){ alive=true;
+          ctx.save(); ctx.globalAlpha=Math.max(0,p.life); ctx.translate(p.x,p.y); ctx.rotate(p.rot);
+          ctx.fillStyle=p.col; ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s*0.6); ctx.restore(); } }
+      if(alive && now-t0<4200) c._raf=requestAnimationFrame(frame);
+      else ctx.clearRect(0,0,c.width,c.height);
+    }
+    cancelAnimationFrame(c._raf); c._raf=requestAnimationFrame(frame);
+  }
+
+  /* ---------------- menu controls ---------------- */
   var curCat="all";
   $("chips").addEventListener("click", function(e){
     var b=e.target.closest(".chip"); if(!b) return;
@@ -58,6 +117,7 @@
   });
 
   function startMode(mode){
+    ensureAudio();
     var pool=poolFor(curCat);
     if(!pool.length){ toast("Aucune question dans ce thème."); return; }
     if(mode==="quiz") startQuiz(pool);
@@ -66,7 +126,6 @@
     else startCards(pool);
   }
 
-  // ---------- HUD ----------
   function renderHud(mode){
     var h=$("p-hud");
     if(mode==="quiz"){
@@ -85,7 +144,6 @@
     }
   }
 
-  // ---------- render (quiz + duel) ----------
   function renderQuestion(item, onPick){
     setText("p-tag", CATS[item.cat]||"Question"); setText("p-q", item.q);
     var fb=$("p-fb"); fb.style.display="none"; fb.className="fb";
@@ -111,11 +169,12 @@
     if(!correct){ var c=$("p-card"); c.classList.remove("shake"); void c.offsetWidth; c.classList.add("shake"); }
   }
 
-  // ---------- QUIZ ----------
+  /* ---------------- QUIZ ---------------- */
   var ROUND=12, qScore, qStreak, qLives, qLast, qAnswered;
   function startQuiz(pool){
     qScore=0; qStreak=0; qLives=3; qLast=null; qAnswered=0;
-    show("play"); $("p-timerbar").hidden=true; renderHud("quiz"); drawLives(qLives);
+    show("play"); renderHud("quiz"); drawLives(qLives);
+    var tb=$("p-timerbar"); tb.hidden=false; tb.classList.add("prog"); $("p-timerfill").style.width="0%";
     nextQuiz(pool);
   }
   function nextQuiz(pool){
@@ -123,10 +182,12 @@
     setText("p-score",qScore); setText("p-streak",qStreak);
     renderQuestion(item, function(ok, btn, box){
       record(item.id, ok);
-      if(ok){ qStreak++; qScore+=10+Math.min(qStreak,5)*2; pulse($("p-streak")); }
-      else { qStreak=0; qLives--; }
+      if(ok){ qStreak++; qScore+=10+Math.min(qStreak,5)*2; pulse($("p-streak")); sfxCorrect();
+        if(qStreak>=3){ setFire(true); sfxSpark(); if(qStreak%5===0) confetti(0.25); } }
+      else { qStreak=0; qLives--; setFire(false); sfxWrong(); }
       setText("p-score",qScore); setText("p-streak",qStreak); drawLives(qLives);
       reveal(box, btn, item, ok); qAnswered++;
+      $("p-timerfill").style.width=(qAnswered/ROUND*100)+"%";
       var nx=$("p-next");
       nx.textContent=(qLives<=0||qAnswered>=ROUND)?"Voir le résultat":"Continuer";
       nx.style.display="block"; nx.focus();
@@ -134,24 +195,26 @@
     });
   }
   function endQuiz(){
-    if(qScore>(best.quiz||0)){ best.quiz=qScore; save(BKEY,best); refreshBest(); }
+    var rec = qScore>(best.quiz||0);
+    if(rec){ best.quiz=qScore; save(BKEY,best); refreshBest(); }
     var maxApprox=qAnswered*20, pct=maxApprox?Math.round(qScore/maxApprox*100):0;
+    if(rec){ confetti(0.8); sfxFanfare(); } else if(pct>=70){ confetti(0.3); }
     showResult({ title:qLives<=0?"Plus de vies":"Quiz terminé", score:qScore,
-      sub:"Répondu : "+qAnswered+" · vies restantes : "+qLives,
+      sub:(rec?"Nouveau record ! ":"")+"Répondu : "+qAnswered+" · vies : "+qLives,
       verdict:pct>=80?"Excellent — tu es prête.":pct>=55?"Bien — encore quelques articles à fixer.":"À retravailler : revois les fiches, puis rejoue.",
       again:function(){ startQuiz(poolFor(curCat)); },
       share:"J'ai marqué "+qScore+" au quiz de Code pénal (concours magistrature). "+location.href });
   }
 
-  // ---------- DUEL ----------
+  /* ---------------- DUEL ---------------- */
   var dTimer, dLeft, dScore, dStreak, dLast, dCount, dPool, dOver;
   function startDuel(pool){
     dPool=pool; dScore=0; dStreak=0; dLeft=60; dLast=null; dCount=0; dOver=false;
     show("play"); renderHud("duel");
-    $("p-timerbar").hidden=false; $("p-timerfill").style.width="100%";
+    var tb=$("p-timerbar"); tb.hidden=false; tb.classList.remove("prog"); $("p-timerfill").style.width="100%";
     clearInterval(dTimer);
     dTimer=setInterval(function(){ dLeft--; setText("p-time",Math.max(0,dLeft));
-      $("p-timerfill").style.width=Math.max(0,(dLeft/60*100))+"%"; if(dLeft<=0) endDuel(); },1000);
+      $("p-timerfill").style.width=Math.max(0,(dLeft/60*100))+"%"; if(dLeft<=4&&dLeft>0) sfxTick(); if(dLeft<=0) endDuel(); },1000);
     nextDuel();
   }
   function nextDuel(){
@@ -160,8 +223,9 @@
     setText("p-score",dScore); setText("p-streak",dStreak);
     renderQuestion(item, function(ok, btn, box){
       record(item.id, ok); dCount++;
-      if(ok){ dStreak++; dScore+=10+Math.min(dStreak,5)*2; pulse($("p-streak")); }
-      else { dStreak=0; dLeft=Math.max(0,dLeft-3); setText("p-time",dLeft); $("p-timerfill").style.width=(dLeft/60*100)+"%"; }
+      if(ok){ dStreak++; dScore+=10+Math.min(dStreak,5)*2; pulse($("p-streak")); sfxCorrect();
+        if(dStreak>=3){ setFire(true); sfxSpark(); if(dStreak%5===0) confetti(0.2); } }
+      else { dStreak=0; setFire(false); sfxWrong(); dLeft=Math.max(0,dLeft-3); setText("p-time",dLeft); $("p-timerfill").style.width=(dLeft/60*100)+"%"; }
       setText("p-score",dScore); setText("p-streak",dStreak);
       reveal(box, btn, item, ok);
       if(dLeft<=0){ endDuel(); return; }
@@ -170,14 +234,15 @@
   }
   function endDuel(){
     if(dOver) return; dOver=true; clearInterval(dTimer);
-    if(dScore>(best.duel||0)){ best.duel=dScore; save(BKEY,best); refreshBest(); }
-    showResult({ title:"Temps écoulé", score:dScore, sub:"Questions traitées : "+dCount,
+    var rec = dScore>(best.duel||0);
+    if(rec){ best.duel=dScore; save(BKEY,best); refreshBest(); confetti(0.8); sfxFanfare(); }
+    showResult({ title:"Temps écoulé", score:dScore, sub:(rec?"Nouveau record ! ":"")+"Questions traitées : "+dCount,
       verdict:dScore>=200?"Redoutable de vitesse.":dScore>=110?"Bon rythme, continue.":"Encore un tour pour gagner en réflexe.",
       again:function(){ startDuel(poolFor(curCat)); },
       share:"J'ai marqué "+dScore+" au duel chronométré de Code pénal. "+location.href });
   }
 
-  // ---------- EXAMEN BLANC ----------
+  /* ---------------- EXAMEN BLANC ---------------- */
   var examTimer, examLeft, examTime, examSet, examIdx, examAnswers, examSel, examOver;
   function buildExamSet(pool, n){
     n=Math.min(n, pool.length); var picks=[], used={}, safety=0;
@@ -188,10 +253,10 @@
     examSet=buildExamSet(pool, EXAM_N); examIdx=0; examAnswers=[]; examSel=null; examOver=false;
     examTime=Math.max(120, examSet.length*30); examLeft=examTime;
     show("play"); renderHud("exam");
-    $("p-timerbar").hidden=false; $("p-timerfill").style.width="100%";
+    var tb=$("p-timerbar"); tb.hidden=false; tb.classList.remove("prog"); $("p-timerfill").style.width="100%";
     $("p-fb").style.display="none";
     clearInterval(examTimer);
-    examTimer=setInterval(function(){ examLeft--; updateExamTime(); if(examLeft<=0) endExam(); },1000);
+    examTimer=setInterval(function(){ examLeft--; updateExamTime(); if(examLeft<=5&&examLeft>0) sfxTick(); if(examLeft<=0) endExam(); },1000);
     updateExamTime(); renderExam();
   }
   function updateExamTime(){ setText("p-time", fmt(Math.max(0,examLeft))); $("p-timerfill").style.width=Math.max(0,(examLeft/examTime*100))+"%"; }
@@ -207,7 +272,7 @@
       b.className="opt"; b.textContent=op.t; b.style.animationDelay=(i*0.05)+"s";
       b.addEventListener("click", function(){
         [].forEach.call(box.querySelectorAll(".opt"), function(x){ x.classList.remove("sel"); });
-        b.classList.add("sel"); examSel={ok:op.ok, t:op.t};
+        b.classList.add("sel"); examSel={ok:op.ok, t:op.t}; sfxTick();
       });
       box.appendChild(b);
     });
@@ -226,7 +291,8 @@
     var correct=0;
     examSet.forEach(function(item,i){ var a=examAnswers[i]; var ok=!!(a&&a.ok); if(ok) correct++; record(item.id, ok); });
     var note=Math.round(correct/examSet.length*20*10)/10;
-    if(note>(best.exam||0)){ best.exam=note; save(BKEY,best); refreshBest(); }
+    var rec = note>(best.exam||0);
+    if(rec){ best.exam=note; save(BKEY,best); refreshBest(); }
     var used=examTime-Math.max(0,examLeft);
     var review=document.createElement("div");
     examSet.forEach(function(item,i){
@@ -243,15 +309,17 @@
       var ex=document.createElement("p"); ex.className="rev-exp"; ex.textContent=item.e; d.appendChild(ex);
       review.appendChild(d);
     });
+    var power = note>=14?0.95:note>=10?0.5:0.12; if(rec) power=Math.max(power,0.9);
+    confetti(power); if(note>=10||rec) sfxFanfare(); else sfxSpark();
     var verdict = note>=14?"Admissible — très bon niveau.":note>=10?"La moyenne est là, consolide les points faibles.":"En dessous de la moyenne : reprends les fiches puis recommence.";
     showResult({ title:"Examen terminé", scoreText:note+"/20",
-      sub:correct+" bonnes réponses sur "+examSet.length+" · temps : "+fmt(used),
+      sub:(rec?"Nouveau record ! ":"")+correct+" / "+examSet.length+" bonnes réponses · temps : "+fmt(used),
       verdict:verdict, reviewNode:review,
       again:function(){ startExam(poolFor(curCat)); },
       share:"J'ai eu "+note+"/20 à l'examen blanc de Code pénal (concours magistrature). "+location.href });
   }
 
-  // ---------- CARDS ----------
+  /* ---------------- CARTES ---------------- */
   var deck, cIdx;
   function startCards(pool){
     deck=shuffle(pool.slice()).sort(function(a,b){ return weight(b.id)-weight(a.id); }).slice(0, Math.min(15, pool.length));
@@ -269,6 +337,7 @@
   function advance(){
     cIdx++;
     if(cIdx>=deck.length){
+      confetti(0.25);
       showResult({ title:"Paquet terminé", score:deck.length, sub:"cartes revues",
         verdict:"Reprends un paquet : les cartes mal sues reviendront en premier.",
         again:function(){ startCards(poolFor(curCat)); } });
@@ -278,12 +347,12 @@
   $("c-again").addEventListener("click", function(){ record(deck[cIdx].id, false); advance(); });
   $("c-quit").addEventListener("click", function(){ show("menu"); });
 
-  // ---------- RESULT + SHARE ----------
+  /* ---------------- RÉSULTAT + PARTAGE ---------------- */
   function copyText(text){
     if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(text).then(function(){ toast("Score copié — tu peux le coller."); }, fallbackCopy);
-    } else fallbackCopy();
-    function fallbackCopy(){
+      navigator.clipboard.writeText(text).then(function(){ toast("Score copié — tu peux le coller."); }, fb);
+    } else fb();
+    function fb(){
       try{ var ta=document.createElement("textarea"); ta.value=text; ta.style.position="fixed"; ta.style.opacity="0";
         document.body.appendChild(ta); ta.select(); document.execCommand("copy"); document.body.removeChild(ta);
         toast("Score copié — tu peux le coller."); }catch(e){ toast("Copie impossible sur cet appareil."); }
@@ -294,7 +363,7 @@
     $("r-score").textContent = cfg.scoreText!=null ? cfg.scoreText : (cfg.score!=null?cfg.score:"");
     setText("r-sub", cfg.sub||""); setText("r-verdict", cfg.verdict||"");
     var rev=$("r-review"); rev.innerHTML=""; if(cfg.reviewNode) rev.appendChild(cfg.reviewNode);
-    show("result");
+    show("result"); setFire(false);
     $("r-again").onclick=cfg.again;
     $("r-menu").onclick=function(){ show("menu"); };
     var sb=$("r-share");
@@ -307,7 +376,15 @@
   }
   $("p-quit").addEventListener("click", function(){ dOver=true; examOver=true; clearInterval(dTimer); clearInterval(examTimer); show("menu"); });
 
-  // ---------- INIT (load questions) ----------
+  /* ---------------- INIT ---------------- */
+  function applySoundIcon(){ var b=$("sound-toggle"); if(b){ b.textContent= soundOn?"\uD83D\uDD0A":"\uD83D\uDD07"; b.setAttribute("aria-pressed", soundOn?"true":"false"); } }
+  function mountSoundToggle(){
+    var h=document.querySelector("header.app"); if(!h) return;
+    var b=document.createElement("button");
+    b.className="sound-btn"; b.id="sound-toggle"; b.setAttribute("aria-label","Activer ou couper le son");
+    b.addEventListener("click", function(){ soundOn=!soundOn; save(SND,soundOn); applySoundIcon(); if(soundOn){ ensureAudio(); sfxSpark(); } });
+    h.appendChild(b); applySoundIcon();
+  }
   function enableModes(){
     var m=$("modes"); m.setAttribute("aria-busy","false");
     [].forEach.call(m.querySelectorAll(".mode"), function(b){
@@ -316,8 +393,8 @@
     });
   }
   function init(){
-    refreshBest();
-    fetch("questions.json", {cache:"no-store"})
+    refreshBest(); mountSoundToggle();
+    fetch("questions.json")
       .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); })
       .then(function(data){
         BANK=data; BANK.forEach(function(q,i){ q.id="q"+i; });
